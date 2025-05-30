@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SimplyInventory.Data;
 
-public class AppDbContext : IdentityDbContext<AppUser>
+internal class AppDbContext : IdentityDbContext<AppUser>
 {
     public AppDbContext(DbContextOptions options) : base(options)
     {
