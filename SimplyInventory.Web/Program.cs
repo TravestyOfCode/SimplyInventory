@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SimplyInventory.Data.Serivces;
 
 namespace SimplyInventory.Web
 {
@@ -12,6 +14,10 @@ namespace SimplyInventory.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Unable to get connection string.");
+
+            builder.Services.AddDataServices(connectionString);
 
             var app = builder.Build();
 
