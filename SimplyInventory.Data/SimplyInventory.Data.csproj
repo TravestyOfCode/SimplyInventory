@@ -23,4 +23,10 @@
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="[8.0.*, 9.0)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Reference Include="SimpleResults">
+	    <HintPath>..\..\SimpleResults\SimpleResults\bin\Debug\net8.0\SimpleResults.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
 </Project>
