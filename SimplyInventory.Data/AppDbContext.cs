@@ -7,6 +7,7 @@ namespace SimplyInventory.Data;
 internal class AppDbContext : IdentityDbContext<AppUser>
 {
     public DbSet<Item> Items { get; set; }
+    public DbSet<PartNumber> PartNumbers { get; set; }
     public DbSet<Vendor> Vendors { get; set; }
 
     public AppDbContext(DbContextOptions options) : base(options)
