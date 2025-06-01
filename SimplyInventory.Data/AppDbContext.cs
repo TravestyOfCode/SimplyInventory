@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 using SimplyInventory.Data.Entity;
 
 namespace SimplyInventory.Data;
@@ -22,4 +24,21 @@ internal class AppDbContext : IdentityDbContext<AppUser>
     }
 }
 
+internal class AppDbContextDesignTimeFactory : IDesignTimeDbContextFactory<AppDbContext>
+{
+    public AppDbContext CreateDbContext(string[] args)
+    {
+        var config = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json", optional: true)
+            .AddEnvironmentVariables()
+            .AddCommandLine(args)
+            .Build();
 
+        var connString = config.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Unable to get connection string.");
+
+        var builder = new DbContextOptionsBuilder()
+            .UseSqlServer(connString);
+
+        return new AppDbContext(builder.Options);
+    }
+}
