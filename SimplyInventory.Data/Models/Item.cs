@@ -69,5 +69,5 @@ internal static class ItemExtensions
             SalesDesc = source.SalesDesc,
             Cost = source.Cost,
             SalesPrice = source.SalesPrice
-        }
+        };
 }
