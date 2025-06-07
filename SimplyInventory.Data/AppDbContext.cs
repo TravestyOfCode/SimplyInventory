@@ -10,6 +10,7 @@ internal class AppDbContext(DbContextOptions options) : IdentityDbContext<AppUse
 {
     public DbSet<Item> Items { get; set; }
     public DbSet<PartNumber> PartNumbers { get; set; }
+    public DbSet<Terms> Terms { get; set; }
     public DbSet<Vendor> Vendors { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
