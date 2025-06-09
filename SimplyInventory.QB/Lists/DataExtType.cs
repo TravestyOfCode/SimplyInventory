@@ -1,0 +1,6 @@
+﻿namespace SimplyInventory.QB.Lists;
+
+public enum DataExtType
+{
+    AMTTYPE, DATETIMETYPE, INTTYPE, PERCENTTYPE, PRICETYPE, QUANTYPE, STR1024TYPE, STR255TYPE
+}
